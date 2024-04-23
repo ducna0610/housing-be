@@ -16,6 +16,9 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .IsRequired()
             .HasColumnType("tinyint");
 
+        builder.Property(x => x.IsAvtive)
+            .IsRequired();
+
         builder.Property(x => x.Password)
             .IsRequired();
 
