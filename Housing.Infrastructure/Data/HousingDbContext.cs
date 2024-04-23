@@ -1,4 +1,5 @@
 ﻿using Housing.Domain.Entities;
+using Housing.Infrastructure.Data.Configurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace Housing.Infrastructure.Data;
@@ -13,4 +14,14 @@ public class HousingDbContext : DbContext
     DbSet<Property> Properties { get; set; }
     DbSet<Photo> Photos { get; set; }
     #endregion
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.ApplyConfiguration(new UserConfiguration());
+        modelBuilder.ApplyConfiguration(new CityConfiguration());
+        modelBuilder.ApplyConfiguration(new PhotoConfiguration());
+        modelBuilder.ApplyConfiguration(new PropertyConfiguration());
+    }
 }
