@@ -9,10 +9,10 @@ public class HousingDbContext : DbContext
     public HousingDbContext(DbContextOptions<HousingDbContext> options) : base(options) { }
 
     #region DbSet
-    DbSet<User> Users { get; set; }
-    DbSet<City> Cities { get; set; }
-    DbSet<Property> Properties { get; set; }
-    DbSet<Photo> Photos { get; set; }
+    public DbSet<User> Users { get; set; }
+    public DbSet<City> Cities { get; set; }
+    public DbSet<Property> Properties { get; set; }
+    public DbSet<Photo> Photos { get; set; }
     #endregion
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
